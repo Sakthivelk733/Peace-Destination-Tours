@@ -20,10 +20,11 @@ body {
   /* background: #0077b6; */
   background: url("head.jpg") center/cover no-repeat;
   color: #fff;
-  padding: 15px 0;
+  padding: 10px 0;
   position: sticky;
   top:0;
   text-align: center;
+  /* background-attachment: fixed;  */
   
 }
 
@@ -58,8 +59,8 @@ body {
   margin-top: 10px;
   border-radius: 10%;
 }
-  
 
+  
 .mobile-toggle {
   display: none;
   font-size: 28px;
@@ -71,7 +72,7 @@ body {
 
 /* HERO */
 .hero {
-  height: 450px;
+  height: 650px;
   background: url("welcome.jpg") center/cover no-repeat;
   background-attachment: fixed; 
   display: flex;
@@ -82,6 +83,7 @@ body {
 
 .hero-content {
   color: blue;
+
 }
 
 .hero-content h2 {
@@ -97,6 +99,54 @@ body {
   color: white;
   cursor: pointer;
   margin-top: 10px;
+  transition:0.3s;
+}
+.btn1 {
+  padding: 10px 20px;
+  background: #45f6cd;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+  transition:0.3s;
+  position: 10px 20px 30px 40px;
+}
+
+
+.flight,.hotel,.packages {
+  padding: 10px 20px;
+  background: #1dc16a;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+} 
+
+/* .hotel {
+  padding: 10px 20px;
+  background: #1dc16a;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.packages {
+  padding: 10px 20px;
+  background: #1dc16a;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+} */
+ .View {
+  padding: 10px 20px;
+  background: #8fd711;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+  transition:0.3s;
 }
 
 /* SERVICES + DESTINATIONS */
@@ -114,7 +164,7 @@ h2 {
   text-align: center;
   color: white;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 20px;
   padding: 100px 20px 500px 40px ;
   /* background: #905c88; */
   border: 10px;
@@ -123,6 +173,8 @@ h2 {
   margin-top: 2px; 
   margin-bottom: 20px ;
   background: url("service.jpg") center/cover no-repeat;
+  background-attachment: fixed; 
+  border-radius: 10px;
 
 
 
@@ -133,8 +185,13 @@ h2 {
   justify-content: space-between;
   gap: 10px;
   text-align: center;
-  color: aquamarine;
-  background: url("inter.jpg") center/cover no-repeat;
+  font-size: 30px;
+  color:rgb(211, 56, 185);
+  background: url("international.jpg") center/cover no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
    
 }
@@ -143,11 +200,16 @@ h2 {
 .destination-cards2 {
   display: flex;
   padding: 100px 20px 130px 40px ;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   gap: 10px;
   text-align: center;
-  color: yellowgreen;
+  font-size: 30px;
+  color: rgb(7, 177, 223);
   background: url("dom.jpg") center/cover no-repeat;
+  background-attachment: fixed;
+  justify-content: center;
+  align-items: center;
+  
   
 
 }
@@ -155,7 +217,9 @@ h2 {
 .card {
   width: 32%;
   padding: 20px;
-  background: #f0f0f0;
+  /* background: #f0f0f0; */
+  background: transparent;
+  border-color: #ff4d6d;
   text-align: center;
   border-radius: 5px;
 }
@@ -168,6 +232,7 @@ h2 {
   width: 60%;
   margin: auto;
   gap: 10px;
+  
 
 }
 
@@ -176,6 +241,7 @@ h2 {
   padding: 10px;
   border: 1px solid #bbb;
   border-radius: 4px;
+  
   
 }
 
@@ -186,6 +252,7 @@ h2 {
   text-align: center;
   padding: 15px;
   margin-top: 30px;
+  
 }
 
 /* RESPONSIVE */
@@ -215,3 +282,25 @@ h2 {
     width: 100%;
   }
 }
+
+h2 {
+  padding: 10px 20px;
+  background: #ff4d6d;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+h4 {
+  padding: 10px 20px;
+  background: #d3cb27;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
