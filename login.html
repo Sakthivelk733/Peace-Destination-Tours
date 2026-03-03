@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>✈️Peace Destination Tours🌏Login</title>
+    <title>Login | Peace Destination Tours</title>
 
-<style>
-body {
+    <style>
+        body {
     margin:0;
     font-family: 'Poppins', sans-serif;
     height:100vh ;
@@ -17,83 +16,130 @@ body {
     animation: fadeIn 2s ease-in-out;
 }
 
-@keyframes fadeIn {
-    from {opacity:0;}
-    to {opacity:1;}
-}
+        .container-login {
+            width: 750px;
+            height: 420px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
 
-.login-box {
-    width:500px;
-    padding:30px;
-    background:rgba(0,0,0,0.65);
-    border-radius:15px;
-    backdrop-filter: blur(8px);
-    color:white;
-    animation: slideUp 1.5s ease;
-}
+        .box {
+            width: 50%;
+            padding: 40px;
+            text-align: center;
+        }
 
-@keyframes slideUp {
-    from {transform: translateY(40px); opacity:0;}
-    to {transform: translateY(0); opacity:1;}
-}
+        .left-box { background: #f2f2f2; }
+        .right-box { background: #ffffff; }
 
-.login-box h2 {
-    text-align:center;
-    margin-bottom:20px;
-}
+        .box input {
+            width: 90%;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 6px;
+            border: 1px solid #bbb;
+        }
 
-input {
-    width:450px; padding: 20px;
-    border: 20px ;
-    border-radius:8px;
-    margin:10px 0;
-}
+        .box button {
+            padding: 12px 25px;
+            width: 100%;
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
 
-button {
-    width:100%;
-    padding:12px;
-    border:none;
-    background:#00e0b5;
-    color:black;
-    font-weight:bold;
-    border-radius:8px;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-button:hover {
-    background:#00c49a;
-    transform:scale(1.05);
-}
-</style>
+        .box button:hover {
+            background: #e43a59;
+        }
+    </style>
 
 </head>
+
 <body>
 
-<div class="login-box">
-    <h1>✈️Peace Destination Tours🌏</h1>
-    <h2>Login</h2>
+<div class="container-login">
 
-    <input type="text" id="adminUser" placeholder="Username">
-    <input type="password" id="adminPass" placeholder="Password">
-    <button onclick="adminLogin()">Login</button>
+    <!-- LOGIN  -->
+    <div class="box left-box">
+        <h2>Sign In</h2>
+
+        <input type="text" id="loginUser" placeholder="Enter Username">
+        <input type="password" id="loginPass" placeholder="Enter Password">
+
+        <button onclick="login()">Login</button>
+    </div>
+
+    <!-- SIGN UP -->
+    <div class="box right-box">
+        <h2>Create User Account</h2>
+
+        <input type="text" id="newUser" placeholder="Create Username">
+        <input type="password" id="newPass" placeholder="Create Password">
+
+        <button onclick="createAccount()">Create Account</button>
+    </div>
+
 </div>
 
+
+
 <script>
-function adminLogin() {
+/* ==========================
+   CREATE ACCOUNT
+   ========================== */
+function createAccount() {
+    let u = newUser.value.trim();
+    let p = newPass.value.trim();
 
-    let u = adminUser.value;
-    let p = adminPass.value;
-
-    if (u === "admin" && p === "sakthi") {
-        window.location.href = "admin.html";   // ADMIN LOGIN
-
-    } else if (u === "sakthi" && p === "1234") {
-        window.location.href = "user.html";    // USER LOGIN
-
-    } else {
-        alert("Invalid Login");                // WRONG LOGIN
+    if (u === "" || p === "") {
+        alert("Please fill all fields!");
+        return;
     }
+
+    let data = {
+        username: u,
+        password: p
+    };
+
+    localStorage.setItem("userAccount", JSON.stringify(data));
+
+    alert("Account Created! Please Login.");
+
+    newUser.value = "";
+    newPass.value = "";
+}
+
+
+/* ==========================
+   LOGIN (ADMIN + USER)
+   ========================== */
+function login() {
+    let u = loginUser.value.trim();
+    let p = loginPass.value.trim();
+
+    let user = JSON.parse(localStorage.getItem("userAccount"));
+
+    // ADMIN LOGIN
+    if (u === "admin" && p === "sakthi") {
+        alert("Admin Login Successful!");
+        window.location.href = "admin.html";
+        return;
+    }
+
+    // USER LOGIN
+    if (user && u === user.username && p === user.password) {
+        alert("User Login Successful!");
+        window.location.href = "user.html";
+        return;
+    }
+
+    // FAIL
+    alert("Invalid Username or Password");
 }
 </script>
 
